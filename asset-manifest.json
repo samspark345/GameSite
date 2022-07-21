@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/GameSite/static/css/main.2456566e.css",
-    "main.js": "/GameSite/static/js/main.d60b3799.js",
+    "main.js": "/GameSite/static/js/main.8ee407c4.js",
     "static/media/fifa_22.png": "/GameSite/static/media/fifa_22.4e28119076272dd93da7.png",
     "static/media/Csgo.png": "/GameSite/static/media/Csgo.4247d478aefc816fb0df.png",
     "static/media/rocket_league.jpg": "/GameSite/static/media/rocket_league.84c6c26a12d4b6ddd037.jpg",
@@ -13,10 +13,10 @@
     "static/media/omen_val.png": "/GameSite/static/media/omen_val.92573fbe7cac0d727e45.png",
     "index.html": "/GameSite/index.html",
     "main.2456566e.css.map": "/GameSite/static/css/main.2456566e.css.map",
-    "main.d60b3799.js.map": "/GameSite/static/js/main.d60b3799.js.map"
+    "main.8ee407c4.js.map": "/GameSite/static/js/main.8ee407c4.js.map"
   },
   "entrypoints": [
     "static/css/main.2456566e.css",
-    "static/js/main.d60b3799.js"
+    "static/js/main.8ee407c4.js"
   ]
 }
