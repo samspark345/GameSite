@@ -1,9 +1,0 @@
-[
-{"title" : "Valorant" , "release_date": "2019" , "img" : "", "description" : "", "genre":"action", "id" : "1" },
-{"title" : "CSGO" , "release_date": "2012" , "img" : "", "description" : "", "genre":"action", "id" : "2" },
-{"title" : "Rocket-League" , "release_date": "1990" , "img" : "", "description" : "sport", "id": "3" },
-{"title" : "Call of Duty" , "release_date": "2034" , "img" : "", "description" : "action", "id":"4"},
-{"title" : "Payday" , "release_date": "2058" , "img" : "", "description" : "action", "id":"5"},
-{"title" : "Fifa 2022" , "release_date": "2002" , "img" : "", "description" : "sport", "id" : "6" },
-{"title" : "NBA 2k22" , "release_date": "1963" , "img" : "", "description" : "sport", "id" : "7" }
-]

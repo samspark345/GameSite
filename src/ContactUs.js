@@ -1,6 +1,5 @@
 import {Accordion, Button, Card, Form, Row, Container, Col} from 'react-bootstrap';
 import { useState, CCard, CCardBody, CCardTitle, CCardText, CCol, CRow, CCardImage } from 'react';
-import JSONDATA from './gameDesc.json'
 import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import valorant from './omen_val.png'
 

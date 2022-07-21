@@ -6,6 +6,7 @@ import About from './AboutUs';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import ContactUs from './ContactUs';
+import Soundtracks from './GameTracks';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           {/* {<DiscoverGames />} */}
           {/* <Home /> */}
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/home">
               <Home />
             </Route>
 
@@ -34,6 +35,10 @@ function App() {
 
             <Route exact path="/contactUs">
               <ContactUs />
+            </Route>
+
+            <Route exact path="/sound-tracks">
+              <Soundtracks />
             </Route>
 
           </Switch>

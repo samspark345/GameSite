@@ -1,17 +1,24 @@
-import {Accordion, Button, Card, Form, Row, Container, Col} from 'react-bootstrap';
-import { useState, CCard, CCardBody, CCardTitle, CCardText, CCol, CRow, CCardImage } from 'react';
-import JSONDATA from './gameDesc.json'
-import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { Button, Card,Row, Container, Col} from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import "./i18next";
+import ChooseLang from './ChooseLang';
 import valorant from './omen_val.png'
 
 const About = () => {
     // const [name, setName] = useState('Sam');
+    const { t, i18n } = useTranslation();
+
+	function handleChangeLng(theLang) {
+		i18n.changeLanguage(theLang);
+		localStorage.setItem("lng", theLang);
+	};
 
     return ( 
         <div className="aboutUs">
-            <h4 className='introText'>WHO WE ARE</h4>
+                <ChooseLang handleLang= {handleChangeLng}/>
+            <h4 className='introText'>{t("intro")}</h4>
             <h1>
-                About Us
+                {t("header")}
                 
             </h1>
             <Container>
@@ -20,10 +27,9 @@ const About = () => {
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={valorant} />
                             <Card.Body>
-                                <Card.Title>Our Mission</Card.Title>
+                                <Card.Title>{t("mission")}</Card.Title>
                                 <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                                    <p>{t("missionText")}</p>
                                 </Card.Text>
                                 <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
@@ -36,8 +42,7 @@ const About = () => {
                             <Card.Body>
                                 <Card.Title>The team</Card.Title>
                                 <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                                {t("hello")}
                                 </Card.Text>
                                 <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
@@ -50,8 +55,7 @@ const About = () => {
                             <Card.Body>
                                 <Card.Title>Acheivements</Card.Title>
                                 <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                                {t("hello")}
                                 </Card.Text>
                                 <Button variant="primary">Go somewhere</Button>
                             </Card.Body>

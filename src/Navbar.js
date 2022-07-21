@@ -11,16 +11,17 @@ function MyNav(){
     return ( 
         <Navbar className="navbar-dark" bg="" expand="lg">
             <Container>
-                <Link to="/"><Navbar.Brand 
+                <Link to="/home"><Navbar.Brand 
                   style={{
                     color : "white"
             }}>Game Home</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to="/">Home</Link>
+                        <Link to="/home">Home</Link>
                         <Link to="/discoverGames">Discover Games</Link>
                         <Link to="/rateGames">Rate Games</Link>
+                        <Link to="/sound-tracks">Sound tracks</Link>
                         <Link to="/aboutUs">About Us</Link>
                         <Link to="/contactUs">Contact Us</Link>
                     </Nav>

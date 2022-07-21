@@ -1,11 +1,60 @@
 import {Accordion, Button, Card, Form} from 'react-bootstrap';
 import { useState, CCard, CCardBody, CCardTitle, CCardText, CCol, CRow, CCardImage } from 'react';
-import JSONDATA from './gameDesc.json'
+import { gameDesc } from './gameDesc';
+import Rating from 'react-rating';
 import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import valorant from './omen_val.png'
+import FilterGame from './FilterGame';
 
 const RateGames = () => {
-    // const [name, setName] = useState('Sam');
+    const [rating, setRating] = useState(2.5);
+    const [confirmation, setConfirmation] = useState('');
+    const [newRating, setNewRating] = useState('none');
+    const [newGameList, filterGame] = useState(gameDesc);
+    const [filterText, updateFilter] = useState('none');
+
+    const filtered_games = newGameList.filter((gameCat) => {
+
+        if (filterText === 'action'){
+            return gameCat.genre ==='action';
+        }else if (filterText === 'sport'){
+            return gameCat.genre ==='sport';
+        }else{
+            return gameCat;
+        }
+
+    })
+
+
+    function filterWithValue(filterValue){
+
+        updateFilter(filterValue);
+
+    }
+
+    function onRate(event) {
+        setNewRating(event.target.value); 
+    }
+
+    function onSubmitClicked(){
+        if (newRating === 'none'){
+            setConfirmation('sorry no rating was chosen');
+        }else{
+            if (newRating === '1'){
+                setRating((rating+1)/2);
+            }else if (newRating === '2'){
+                setRating((rating+2)/2);
+            }else if (newRating === '3'){
+                setRating((rating+3)/2);
+            }else if (newRating === '4'){
+                setRating((rating+4)/2);
+            }else if (newRating === '5'){
+                setRating((rating+5)/2);
+            }
+
+            setConfirmation('Rating received thank you!!')
+        }
+        
+    }
 
     return ( 
         <div className="rateGames">
@@ -15,37 +64,46 @@ const RateGames = () => {
                 
             </h1>
             <input className='search' placeHolder = 'search...' ></input>
+            <FilterGame style={{alignItems:'center', marginLeft:"auto" , marginRight:"auto", width:"100%"}}  filterselected={filterWithValue}/>
             <Accordion
-                style = {{textAlign : 'center', marginTop : '15vh'}}
+                style = {{textAlign : 'center', marginTop : '15vh',  marginRight: 'auto', marginLeft: 'auto', width:'80%'}}
             >
-                {JSONDATA.map((val) =>{
-                    const gameName = val.title;
+                {filtered_games.map((game) =>{
+                    const gameName = game.title;
                     return(
-                        <Accordion.Item eventKey={val.id} className = "accordion" style={{marginTop : '3px', backgroundColor : 'grey'}}>
-                            <Accordion.Header className = "accordion">{val.title}</Accordion.Header>
+                        <Accordion.Item eventKey={game.id} className = "accordion" style={{marginTop : '3px', backgroundColor : 'grey'}}>
+                            <Accordion.Header className = "accordion">{game.title}</Accordion.Header>
                             <Accordion.Body>
-                            <MDBCard style={{ maxWidth: '540px',  backgroundColor: 'grey', borderWidth: '0px' }}>
+                            <MDBCard style={{ maxWidth: '100%',  backgroundColor: 'grey', borderWidth: '0px' }}>
                                 <MDBRow className='g-0'>
-                                    <MDBCol md='4'>
-                                    <MDBCardImage src={valorant} alt='...' fluid />
+                                    <MDBCol md='5'>
+                                    <MDBCardImage src={game.img} alt='...' fluid />
                                     </MDBCol>
-                                    <MDBCol md='8'>
+                                    <MDBCol md='7'>
                                     <MDBCardBody>
-                                        <MDBCardTitle>Card title</MDBCardTitle>
+                                        <MDBCardTitle>
+                                            <p>Title : {game.title}</p>
+
+                                        </MDBCardTitle>
                                         <MDBCardText>
-                                            <p>title: {val.title}</p>
                                             <Form.Group className="mb-3">
+                                            <Rating
+                                                initialRating={rating}
+                                                fractions={10}
+                                                readonly
+                                            />
                                                 <Form.Label>Rate</Form.Label>
-                                                <Form.Select>
-                                                <option>....</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <Form.Select onChange={onRate}>
+                                                    <option value="none">....</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
                                                 </Form.Select>
                                             </Form.Group>
-                                            <Button>submit</Button>
+                                            <Button onClick={onSubmitClicked} >submit</Button>
+                                            <p>{confirmation}</p>
                                         </MDBCardText>
                                     </MDBCardBody>
                                     </MDBCol>
